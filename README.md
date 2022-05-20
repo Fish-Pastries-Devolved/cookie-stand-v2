@@ -9,7 +9,8 @@ The Next JS library provides all the tools needed for server-side-rendering and 
 ### Pros
 
 * *Almost* plug-and-play server-side-rendering & pre-rendering
-* Provides easy to use page templating
+* Provides relatively easy-to-use page templating
+* Next pages are loaded *very* quickly
 
 ### Cons
 
@@ -35,4 +36,5 @@ Next has widespread usage. Two million plus weekly downloads per npm and changes
 ## Links and Resources
 
 * [Nextjs.org](https://nextjs.org/)
-
+* [React-bootstrap](https://react-bootstrap.github.io/)
+* [Fireship: Next.js in 100 seconds](https://www.youtube.com/watch?v=Sklc_fQBmcs&ab_channel=Fireship)
