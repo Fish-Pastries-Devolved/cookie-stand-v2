@@ -28,11 +28,11 @@ Converting a React project to Next requires restructuring the application to fit
 
 ### Ramp-up Projections
 
-The ramp-up time would be highly dependent on the size of the project and how well it fits into Next's page-based framework. A small scale project would take a few days, a mid-sized project may take one to two weeks.
+The ramp-up time would be highly dependent on the size of the project and how well it fits into Next's page-based framework. A small scale project would take a week, a mid-sized project may take two or more weeks.
 
 ### Community Support
 
-Next has widespread usage. Two million plus weekly downloads per npm and changes are published frequently
+Next has widespread usage. Two million plus weekly downloads per npm and changes are published frequently.
 
 ## Links and Resources
 
