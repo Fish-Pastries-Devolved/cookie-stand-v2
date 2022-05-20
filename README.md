@@ -8,9 +8,9 @@ The Next JS library provides all the tools needed for server-side-rendering and 
 
 ### Pros
 
-* *Almost* plug-and-play server-side-rendering & pre-rendering
+* Provides server-side-rendering, pre-rendering, & incremental static regeneration
 * Provides relatively easy-to-use page templating
-* Next pages are loaded *very* quickly
+* Next pages are rendered *very* quickly on the client
 
 ### Cons
 
