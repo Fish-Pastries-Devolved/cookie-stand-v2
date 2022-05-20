@@ -1,45 +1,48 @@
-import TableComp from 'react-bootstrap/Table'
+import TableComp from 'react-bootstrap/Table';
+// import { useState, useEffect } from 'react';
 
-function Table({data}) {
-  const [state, setState] = useState(data.tableData);
-  useEffect(() => {
-    setState(data.tableData);
-  }, [data]);
+function Table({ data, time }) {
+  let globalHourlyTotals = [];
+  if (data.length > 0) {
+    for (let i = 0; i < time.length; i++) {
+      let hourlyTotal = 0;
+      for (let store of data) {
+        hourlyTotal += store.cookiesSoldPerHr[i];
+      }
+      globalHourlyTotals.push(hourlyTotal);
+    }
+  }
 
-  return(
-//let time = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm', '8 pm',]
+  return (
     <>
-    <TableComp striped bordered hover variant="dark">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td colSpan={2}>Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </TableComp>
-  </>
-)
+      <TableComp striped bordered hover variant="dark">
+        <thead>
+          <tr>
+            <th>Hours</th>
+            {time.map((hour) => (
+              <th key={hour}>{hour}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((store, idx) => (
+            <tr key={`${store.name}-${idx}`}>
+              <td>{store.name}</td>
+              {store.cookiesSoldPerHr.map((hourSales, idx) => (
+                <td key={idx}>{hourSales}</td>
+              ))}
+            </tr>
+          ))}
+          <tr>
+            <td>Global Totals</td>
+            {globalHourlyTotals.map((hourTotal, idx) => (
+              <td key={`${hourTotal}-${idx}`}>{hourTotal}</td>
+            ))}
+          </tr>
+        </tbody>
+      </TableComp>
+    </>
+  );
 }
 
 export default Table;
