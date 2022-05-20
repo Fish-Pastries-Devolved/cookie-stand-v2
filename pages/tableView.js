@@ -17,37 +17,53 @@ import Table from '../Components/Table/Table.js';
 // };
 
 export default function Home() {
-  [tableData, setTableData] = useState(null)
+  const [tableData, setTableData] = useState([]);
   // need state to read initial table data from and to add table data too
-  // request static props on pages to render on client load 
-  
-  useEffect(() => {
-    setTableData({})
-    createStore();
-  },[])
+  // request static props on pages to render on client load
 
-  function createStore(name, max, min, avg) {
+  let time = [
+    '6 am',
+    '7 am',
+    '8 am',
+    '9 am',
+    '10 am',
+    '11 am',
+    '12 pm',
+    '1 pm',
+    '2 pm',
+    '3 pm',
+    '4 pm',
+    '5 pm',
+    '6 pm',
+    '7 pm',
+    '8 pm',
+  ];
+
+  useEffect(() => {
+    setTableData([]);
+  }, []);
+
+  function createStore({ name, max, min, avg }) {
     //array containing objects [{},{},{}]
     let storeData = {
       name: name,
-      max: max,
-      min: min,
-      avg: avg,
+      max: parseInt(max),
+      min: parseInt(min),
+      avg: parseInt(avg),
       cookiesSoldPerHr: [],
-    }
-    let time = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm', '8 pm',]
+    };
     for (let i = 0; i < time.length; i++) {
       let randomCustomers = Math.ceil(Math.random() * (max - min)) + min;
       storeData.cookiesSoldPerHr.push(Math.floor(avg * randomCustomers));
     }
-    setTableData(...tableData, storeData)
+    setTableData([...tableData, storeData]);
   }
 
   return (
     <>
-      <p className='text-center'>Table Page</p>
-      <Table data={tableData}/>
-      <Form createStore={createStore}/>
+      <p className="text-center">Table Page</p>
+      <Table data={tableData} time={time} />
+      <Form createStore={createStore} />
     </>
-  )
+  );
 }
