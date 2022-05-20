@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
+import Navigation from "../Components/NavBar/NavBar.js";
 import { useEffect, useState } from 'react';
 
 import Form from '../Components/Form/Form.js';
@@ -62,6 +63,7 @@ export default function Home() {
   return (
     <>
       <p className="text-center">Table Page</p>
+      <Navigation />
       <Table data={tableData} time={time} />
       <Form createStore={createStore} />
     </>
